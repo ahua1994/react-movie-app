@@ -5,8 +5,12 @@ function MovieCard({ movie }) {
     console.log(movie);
     return (
         <div className="MovieCard">
-            <img src={baseUrl + movie.poster_path} alt="" />
-            <h5>{movie.title}</h5>
+            <img src={baseUrl + movie.poster_path} alt={movie.title} />
+            <h5 className="title">{movie.title}</h5>
+            <div className="slide">
+                <h2>Overview</h2>
+                <h5>{movie.overview}</h5>
+            </div>
         </div>
     );
 }
