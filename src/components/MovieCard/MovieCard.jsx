@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import "./MovieCard.scss";
 
 function MovieCard({ movie }) {
     const baseUrl = `https://image.tmdb.org/t/p/w1280`;
     console.log(movie);
+    const navigate = useNavigate();
     return (
-        <div className="MovieCard">
+        <div onClick={() => navigate("/details", { state: movie })} className="MovieCard">
             <img src={baseUrl + movie.poster_path} alt={movie.title} />
             <h5 className="title">{movie.title}</h5>
             <div className="slide">
