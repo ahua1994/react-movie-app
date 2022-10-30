@@ -1,0 +1,29 @@
+.Home { 
+    min-height: 100vh; 
+    padding-top: 64px;
+    background-image: url("../../images/bg.jpg"); 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 5rem 7rem 2rem 7rem;
+    gap: 2rem; 
+}
+@media screen and (max-width: 1800px) {
+    .Home{ 
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (max-width: 1500px) {
+    .Home{ 
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 1180px) {
+    .Home{ 
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 760px) {
+    .Home{ 
+        grid-template-columns: 1fr;
+    }
+}

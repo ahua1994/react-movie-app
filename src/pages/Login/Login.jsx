@@ -2,6 +2,7 @@ import "../Register/Register.scss";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Button, Form, Input, Label } from "reactstrap";
 import theatre from "../../images/theatre.jpg";
+import { useNavigate } from "react-router-dom";
 
 // signInWithEmailAndPassword(auth, email, password)
 //     .then(userCredential => {
@@ -13,6 +14,7 @@ import theatre from "../../images/theatre.jpg";
 //     });
 
 function Login() {
+    const navigate = useNavigate();
     return (
         <div className="Login">
             <img src={theatre} alt="theatre" />
@@ -30,7 +32,8 @@ function Login() {
                 <Button color="primary">Login</Button>
                 <Button color="primary">Continue with Google</Button>
                 <p className="redirect">
-                    Already Registered? <span>Login</span>
+                    Don't Have An Account?{" "}
+                    <span onClick={() => navigate("/register")}>Register</span>
                 </p>
             </Form>
         </div>

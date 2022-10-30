@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { Button, Form, Input, Label } from "reactstrap";
 import theatre from "../../images/theatre.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
     // createUserWithEmailAndPassword(auth, email, password)
@@ -13,6 +14,7 @@ function Register() {
     //     .catch(error => {
     //         console.log(error);
     //     });
+    const navigate = useNavigate();
 
     return (
         <div className="Register">
@@ -33,7 +35,7 @@ function Register() {
                 <Button color="primary">Register New User</Button>
                 <Button color="primary">Continue with Google</Button>
                 <p className="redirect">
-                    Already Registered? <span>Login</span>
+                    Already Registered? <span onClick={() => navigate("/login")}>Login</span>
                 </p>
             </Form>
         </div>
