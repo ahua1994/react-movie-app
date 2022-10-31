@@ -1,24 +1,49 @@
-.Details{
+.Details {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 64px;
     min-height: 100vh;
     background-image: url("../../images/bg.jpg"); 
-    .main{
+    .main {
         display: flex;
         width: 70%;
         max-height: 70%;
-        background-color: #666; 
-        img{
-            max-width: 400px; 
+        background-color: rgb(15, 15, 15); 
+        border-radius: 5px;
+        overflow: hidden;
+        img {
+            max-width: 400px;
+        }
+        .poster {
+            background-color: rgb(228, 228, 228);  
         }
     }
     .extra {
+        padding: 1.5rem;
         width: 100%;
-        iframe{
-            height: 100%;
+        color: white;
+        .container {
+            position: relative;
+            overflow: hidden;
             width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .Details {
+        .main{ 
+            flex-direction: column;
         }
     }
 }
