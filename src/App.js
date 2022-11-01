@@ -6,20 +6,23 @@ import Login from "./pages/Login/Login";
 import Details from "./pages/Details/Details";
 import Error from "./pages/Error/Error";
 import Navbar from "./components/Navbar/Navbar";
+import AuthProvider from "./context/AuthContext";
 
 function App() {
     return (
         <div className="App">
-            <BrowserRouter>
-                <Navbar></Navbar>
-                <Routes>
-                    <Route path="/" element={<Home></Home>} />
-                    <Route path="details" element={<Details />} />
-                    <Route path="login" element={<Login />} />
-                    <Route path="register" element={<Register />} />
-                    <Route path="*" element={<Error />} />
-                </Routes>
-            </BrowserRouter>
+            <AuthProvider>
+                <BrowserRouter>
+                    <Navbar></Navbar>
+                    <Routes>
+                        <Route path="/" element={<Home></Home>} />
+                        <Route path="details" element={<Details />} />
+                        <Route path="login" element={<Login />} />
+                        <Route path="register" element={<Register />} />
+                        <Route path="*" element={<Error />} />
+                    </Routes>
+                </BrowserRouter>
+            </AuthProvider>
         </div>
     );
 }

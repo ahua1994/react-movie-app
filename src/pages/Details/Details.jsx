@@ -19,7 +19,6 @@ function Details() {
                 setTrailer(x.results[0].key);
             });
     }, []);
-    console.log(movie);
     return (
         <div className="Details">
             {location.state && trailer && (

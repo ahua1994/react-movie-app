@@ -8,7 +8,6 @@ function MovieCard({ movie }) {
     function ratingColor() {
         return num >= 7 ? "green" : num >= 6 ? "goldenrod" : "red";
     }
-    console.log(ratingColor());
     return (
         <div onClick={() => navigate("/details", { state: movie })} className="MovieCard">
             <h5 className="rating" style={{ backgroundColor: ratingColor() }}>
@@ -17,7 +16,7 @@ function MovieCard({ movie }) {
             <img src={baseUrl + movie.poster_path} alt={movie.title} />
             <h5 className="title">{movie.title}</h5>
             <div className="slide">
-                <h2>Overview</h2>
+                <h2>Overview</h2>yarn start
                 <h5>{movie.overview}</h5>
             </div>
         </div>

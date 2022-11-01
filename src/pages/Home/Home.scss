@@ -1,3 +1,10 @@
+.sort{
+    position: fixed;
+    z-index: 50; 
+    right:200px;
+    width: 16rem;
+    top: 12px;
+}
 .Home { 
     min-height: 100vh; 
     padding-top: 64px;
@@ -25,5 +32,9 @@
 @media screen and (max-width: 760px) {
     .Home{ 
         grid-template-columns: 1fr;
+    }
+    .sort{ 
+        width: 6rem;
+        right: 172px;
     }
 }
