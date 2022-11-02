@@ -5,9 +5,15 @@
     width: 16rem;
     top: 12px;
 }
+#search{
+    display: flex;
+    position: fixed;
+    z-index: 51;
+    right: 480px;
+    top: 12px;
+}
 .Home { 
-    min-height: 100vh; 
-    padding-top: 64px;
+    min-height: 100vh;  
     background-image: url("../../images/bg.jpg"); 
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -26,15 +32,22 @@
 }
 @media screen and (max-width: 1180px) {
     .Home{ 
+        padding: 8rem 0 0 2rem;
         grid-template-columns: 1fr 1fr;
+    }
+    #search{
+        right: 172px;
+        top: 60px;
     }
 }
 @media screen and (max-width: 760px) {
-    .Home{ 
+    .Home{  
         grid-template-columns: 1fr;
     }
+    
     .sort{ 
-        width: 6rem;
-        right: 172px;
+        width: 7rem;
+        right: 52px;
+        top: 60px;
     }
 }

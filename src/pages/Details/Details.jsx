@@ -16,12 +16,13 @@ function Details() {
         )
             .then(x => x.json())
             .then(x => {
+                if (!x.results[0]) return;
                 setTrailer(x.results[0].key);
             });
     }, []);
     return (
         <div className="Details">
-            {location.state && trailer && (
+            {(location.state && trailer && (
                 <div className="main">
                     <div className="poster">
                         <img src={baseUrl + movie.poster_path} alt={movie.title} />
@@ -45,7 +46,7 @@ function Details() {
                         <h5>{movie.overview}</h5>
                     </div>
                 </div>
-            )}
+            )) || <h1 style={{ color: "white" }}>No Info</h1>}
         </div>
     );
 }

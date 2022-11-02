@@ -44,6 +44,10 @@
     .Details {
         .main{ 
             flex-direction: column;
+            .poster{
+                background-color: transparent;
+                color: white;
+            }
         }
     }
 }

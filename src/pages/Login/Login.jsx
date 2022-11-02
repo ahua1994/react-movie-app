@@ -2,8 +2,9 @@ import "../Register/Register.scss";
 import { Button, Form, Input, Label } from "reactstrap";
 import theatre from "../../images/theatre.jpg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { login, signUpProvider, forgetPassword } from "../../firebase";
+import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
     const navigate = useNavigate();
@@ -11,12 +12,16 @@ function Login() {
     const [password, setPassword] = useState();
     const [err, setErr] = useState(null);
 
+    const { currentUser } = useContext(AuthContext);
+    console.log(currentUser, "currentUser");
+
     const submitHandler = async e => {
+        e.preventDefault();
         if (!email || !password) {
             setErr("Invalid Entry");
             return;
         }
-        const message = login(email, password);
+        const message = await login(email, password);
         if (message) {
             setErr(message);
         } else {
@@ -66,7 +71,7 @@ function Login() {
                     Continue with Google
                 </Button>
                 <p className="redirect">
-                    Don't Have An Account?
+                    Don't Have An Account?{" "}
                     <span onClick={() => navigate("/register")}>Register</span>
                 </p>
             </Form>
