@@ -4,7 +4,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import "./Home.scss";
 
 function Home() {
-    const [list, setList] = useState([]);
+    // const [list, setList] = useState([]);
     const [sortedList, setSortedList] = useState([]);
     const [input, setInput] = useState("");
     const [search, setSearch] = useState("");
@@ -14,7 +14,7 @@ function Home() {
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`)
             .then(x => x.json())
             .then(x => {
-                setList(x.results);
+                // setList(x.results);
                 setSortedList(x.results);
             });
     }, []);
@@ -23,11 +23,10 @@ function Home() {
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`)
             .then(x => x.json())
             .then(x => {
-                if (!x.results) return;
+                if (x.results.length === 0) return;
                 else setSortedList(x.results);
             });
     }, [search]);
-    console.log(search, sortedList);
 
     function handleSort(arg) {
         let newList = [...sortedList];
